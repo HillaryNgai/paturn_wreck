@@ -1,0 +1,35 @@
+%% SYDE 372 Pattern Recognition 
+%% Lab 2: Model Estimation and Discriminant Functions
+%Hillary Ngai - 20609183
+%Matt Gagne - 20507759 
+%Nick Heersink - 20521906 
+
+%% Question 2 - Model Estimation 1-D Case
+%% a)ML Parametric Estimation - Gaussian
+%% Gaussian
+% Set A
+muA = 5;
+sdA = 1;
+y = zeros(size(a));
+
+min_val = 0;
+max_val = max(a(1,:))+1;
+
+x = min_val:0.01:max_val;
+[mu_est, sigma_est] = gaussianEstimation1D(a);
+
+norm = normpdf(x,muA,sdA);
+norm_est = normpdf(x,mu_est, sigma_est);
+figure(1);
+hold on;
+scatter(a,y);
+plot(x,norm);
+plot(x,norm_est);
+title('Gaussian Estimate of Gaussian Distribution');
+strmu = ['\mu_{est}=', num2str(mu_est)];
+strsd = ['\sigma_{est}=', num2str(sigma_est)];
+text(9.0, 0.35, strmu, 'HorizontalAlignment', 'center');
+text(9.0, 0.32, strsd, 'HorizontalAlignment', 'center');
+grid on;
+hold off;
+
