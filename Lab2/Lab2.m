@@ -18,6 +18,7 @@ y = zeros(size(a));
 
 pdf = normpdf(x, muA, sdA);
 pdfEst = normpdf(x, muEst, sigmaEst);
+
 figure(1);
 hold on;
 scatter(a, y);
